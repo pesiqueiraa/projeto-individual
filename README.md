@@ -25,7 +25,7 @@ Estas informações são exibidas em formato de cards na interface do usuário, 
 ## Estrutura de Pastas
 
 ```
-meu-projeto/
+projeto-individual/
 │
 ├── config/                # Arquivos de configuração (ex: conexão com banco)
 │   └── database.js

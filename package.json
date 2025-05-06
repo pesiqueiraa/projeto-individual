@@ -1,0 +1,24 @@
+{
+  "name": "projeto-individual",
+  "version": "1.0.0",
+  "description": "&ensp; Este projeto é um sistema básico de cadastro de carros, no qual um usuário pode colocar a foto, modelo, marca e potência do carro. Após o envio, o carro é exibido em um card no front-end.",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pesiqueiraa/projeto-individual.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pesiqueiraa/projeto-individual/issues"
+  },
+  "homepage": "https://github.com/pesiqueiraa/projeto-individual#readme"
+}
