@@ -68,5 +68,5 @@ meu-projeto/
 3. Inicie o servidor:
 
    ```bash
-   npm run
+   npm run dev
 4. Acesse no navegador: [http://localhost:3000](http://localhost:3000)
