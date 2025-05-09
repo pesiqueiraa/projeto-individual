@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/pesiqueiraa/projeto-individual/issues"
   },
-  "homepage": "https://github.com/pesiqueiraa/projeto-individual#readme"
+  "homepage": "https://github.com/pesiqueiraa/projeto-individual#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
