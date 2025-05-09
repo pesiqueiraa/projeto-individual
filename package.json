@@ -7,6 +7,7 @@
     "test": "tests"
   },
   "scripts": {
+    "init-db": "node scripts/runSQLScripts.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
@@ -22,6 +23,8 @@
   },
   "homepage": "https://github.com/pesiqueiraa/projeto-individual#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "pg": "^8.15.6"
   }
 }
