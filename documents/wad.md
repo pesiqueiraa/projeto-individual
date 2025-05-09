@@ -1,7 +1,8 @@
-# Web Application Document (WAD) - Garagem dos sonhos
+# Web Application Document - Projeto Individual - Módulo 2 - Inteli
 
-## Pedro Siqueira de Souza
+## Garagem dos sonhos
 
+#### Pedro Siqueira de Souza
 
 ## 1. Introdução
 &ensp; Este documento descreve a implementação de um sistema web para adição de informações sobre carros dos usuários. A aplicação permitirá que usuários cadastrados incluam, visualizem, atualizem e removam dados sobre os carros adicionados na apliacação. O sistema foi projetado para que os usuários mostrem seus carros para outros usuários intusiastas do tema em cards dentro de seu perfil, sendo uma plataforma intuitiva e de fácil utilização.
