@@ -64,6 +64,16 @@ class User {
             throw new Error('Erro ao atualizar usuário: ' + error.message);
         }
     }
+
+    // Deletar usuário
+    static async delete(id) {
+        try {
+            const result = await db.query('DELETE FROM users WHERE id = $1 RETURNING *', [id]);
+            return result.rows.length > 0;
+        } catch (error) {
+            throw new Error('Erro ao deletar usuário: ' + error.message);
+        }
+    }
 }
 
 module.exports = User;

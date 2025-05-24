@@ -1,15 +1,3 @@
-# ========= GET =========
-# Listar users
-GET http://localhost:3000/users
-Content-Type: application/json
-
-###
-
-# Listar user específico
-
-GET http://localhost:3000/users/453b28dd-abe9-4aaa-adbc-cfbbe786d6ac
-
-###
 
 # ========= POST =========
 # Criar usuário 
@@ -21,6 +9,18 @@ Content-Type: application/json
   "email": "bruce@email.com",
   "senha": "123456"
 }
+###
+# ========= GET =========
+# Listar users
+GET http://localhost:3000/users
+Content-Type: application/json
+
+###
+
+# Listar user específico
+
+GET http://localhost:3000/users/453b28dd-abe9-4aaa-adbc-cfbbe786d6ac
+
 
 ###
 
@@ -35,3 +35,10 @@ Content-Type: application/json
   "email": "pedrolindo@email.com",
   "senha": "123456"
 }
+
+### 
+
+# ========= DELETE =========
+# Deletar usuário
+DELETE http://localhost:3000/users/c077cb6e-56da-4f32-a251-547afc113054
+Content-Type: application/json
