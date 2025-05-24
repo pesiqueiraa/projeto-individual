@@ -30,6 +30,20 @@ class User {
         }
     }
 
+    // Buscar usuário por email
+    static async findByEmail(email) {
+        try {
+            const result = await db.query('SELECT * FROM users WHERE email = $1', [email]);
+            if (result.rows.length === 0) {
+                return null;
+            }
+            const row = result.rows[0];
+            return new User(row.id, row.nome, row.email, row.senha);
+        } catch (error) {
+            throw new Error('Erro ao buscar usuário por email: ' + error.message);
+        }
+    }
+
     // Criar novo usuário
     static async create(userData) {
         try {

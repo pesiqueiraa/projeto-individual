@@ -145,6 +145,47 @@ class UserController {
             });
         }
     }
+
+    // POST /users/login - Login do usuário
+    static async login(req, res) {
+        try {
+            const { email, senha } = req.body;
+
+            if (!email || !senha) {
+                return res.status(400).json({
+                    success: false,
+                    message: 'Email e senha são obrigatórios'
+                });
+            }
+
+            const user = await User.findByEmail(email);
+            if (!user || user.senha !== senha) {
+                return res.status(401).json({
+                    success: false,
+                    message: 'Email ou senha incorretos'
+                });
+            }
+
+            const userResponse = {
+                id: user.id,
+                nome: user.nome,
+                email: user.email
+            };
+
+            res.status(200).json({
+                success: true,
+                message: 'Login realizado com sucesso',
+                data: userResponse
+            });
+        } catch (error) {
+            res.status(500).json({
+                success: false,
+                message: 'Erro interno do servidor',
+                error: error.message
+            });
+        }
+    }
+
 }
 
 module.exports = UserController;

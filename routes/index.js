@@ -19,4 +19,7 @@ router.put('/users/:id', UserController.update)
 // Rota para deletar user 
 router.delete('/users/:id', UserController.delete);
 
+// Rota para login do user
+router.post('/users/login', UserController.login)
+
 module.exports = router;

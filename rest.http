@@ -42,3 +42,14 @@ Content-Type: application/json
 # Deletar usuário
 DELETE http://localhost:3000/users/c077cb6e-56da-4f32-a251-547afc113054
 Content-Type: application/json
+
+
+# ========= POST =========
+### 6. Login do usuário
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+  "email": "admin@teste.com",
+  "senha": "123456"
+}
