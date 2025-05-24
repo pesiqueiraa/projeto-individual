@@ -16,6 +16,31 @@ class UserController {
             });
         }
     }
+
+        // GET /users/:id - Listar user específico
+
+    static async show(req, res) {
+        try {
+            const { id } = req.params
+            const user = await User.findById(id)
+
+            if (!user) {
+                return res.status(404).json({
+                    message: 'Usuario não encontrado'
+                })
+            }
+            res.status(200).json({
+                message: "Usuario encontrado",
+                data: user
+            })
+        } catch (error) {
+            res.status(500).json({
+                success: false,
+                message: 'Erro interno do servidor',
+                error: error.message
+            });
+        }
+    }
 }
 
 module.exports = UserController;

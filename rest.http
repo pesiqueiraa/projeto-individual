@@ -1,3 +1,10 @@
 # Listar users
 GET http://localhost:3000/users
 Content-Type: application/json
+
+###
+
+# Listar user específico
+
+GET http://localhost:3000/users/453b28dd-abe9-4aaa-adbc-cfbbe786d6ac
+

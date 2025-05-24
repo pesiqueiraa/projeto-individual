@@ -6,4 +6,7 @@ const UserController = require('../controllers/UserControllers.js')
 // Rota para listar todos os usuários
 router.get('/users', UserController.index)
 
+// Rota para listar user específico
+router.get('/users/:id', UserController.show)
+
 module.exports = router;
