@@ -32,4 +32,7 @@ router.get('/carros', CarroController.index);
 // Rota para criar carros
 router.post('/carros', CarroController.create);
 
+ // Rota para atualizar carro
+router.put('/carros/:id', CarroController.update);     
+
 module.exports = router;

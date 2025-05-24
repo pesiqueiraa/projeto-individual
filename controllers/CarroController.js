@@ -66,6 +66,41 @@ class CarroController {
             });
         }
     }
+    // PUT /carros/:id - Atualizar carro (sem validação)
+static async update(req, res) {
+    try {
+        const { id } = req.params;
+        const { modelo, potencia, ano_fabricacao, marca_id, user_id } = req.body;
+
+        const existingCarro = await Carro.findById(id);
+        if (!existingCarro) {
+            return res.status(404).json({
+                success: false,
+                message: 'Carro não encontrado'
+            });
+        }
+
+        const updatedCarro = await Carro.update(id, { 
+            modelo, 
+            potencia, 
+            ano_fabricacao, 
+            marca_id, 
+            user_id 
+        });
+
+        res.status(200).json({
+            success: true,
+            message: 'Carro atualizado com sucesso',
+            data: updatedCarro
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Erro interno do servidor',
+            error: error.message
+        });
+    }
+}
 
 }
 

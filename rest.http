@@ -10,7 +10,6 @@ Content-Type: application/json
   "senha": "123456"
 }
 ###
-# ========= GET =========
 # Listar users
 GET http://localhost:3000/users
 Content-Type: application/json
@@ -24,7 +23,6 @@ GET http://localhost:3000/users/453b28dd-abe9-4aaa-adbc-cfbbe786d6ac
 
 ###
 
-# ========= PUT =========
 # Criar usuário 
 
 PUT http://localhost:3000/users/1c587cce-567e-4612-bbfe-d5ea0070e17a
@@ -38,14 +36,12 @@ Content-Type: application/json
 
 ### 
 
-# ========= DELETE =========
 # Deletar usuário
 DELETE http://localhost:3000/users/c077cb6e-56da-4f32-a251-547afc113054
 Content-Type: application/json
 
 
-# ========= POST =========
-### 6. Login do usuário
+### Login do usuário
 POST http://localhost:3000/users/login
 Content-Type: application/json
 
@@ -70,4 +66,16 @@ Content-Type: application/json
   "ano_fabricacao": 2023,
   "marca_id": "39cfb444-15b7-4420-8798-677541a07a1e",
   "user_id": "453b28dd-abe9-4aaa-adbc-cfbbe786d6ac"
+}
+
+### Atualizar carro
+PUT http://localhost:3000/carros/34b80dc9-47c2-47c5-a271-40c4cd568b8d
+Content-Type: application/json
+
+{
+  "modelo": "Supra MK5",
+  "potencia": 340,
+  "ano_fabricacao": 2024,
+  "marca_id": "593877e1-507b-48d4-8c98-c5841ad831d7",
+  "user_id": "86995fee-8799-4fe7-ae2e-475df12d0f72"
 }
