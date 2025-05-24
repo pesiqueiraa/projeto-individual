@@ -102,6 +102,42 @@ static async update(req, res) {
     }
 }
 
+// DELETE /carros/:id - Deletar carro
+    static async delete(req, res) {
+        try {
+            const { id } = req.params;
+
+            // Verificar se carro existe
+            const existingCarro = await Carro.findById(id);
+            if (!existingCarro) {
+                return res.status(404).json({
+                    success: false,
+                    message: 'Carro não encontrado'
+                });
+            }
+
+            const deleted = await Carro.delete(id);
+            
+            if (deleted) {
+                res.status(200).json({
+                    success: true,
+                    message: 'Carro deletado com sucesso'
+                });
+            } else {
+                res.status(400).json({
+                    success: false,
+                    message: 'Erro ao deletar carro'
+                });
+            }
+        } catch (error) {
+            res.status(500).json({
+                success: false,
+                message: 'Erro interno do servidor',
+                error: error.message
+            });
+        }
+    }
+
 }
 
 module.exports = CarroController;

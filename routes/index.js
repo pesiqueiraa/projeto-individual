@@ -35,4 +35,8 @@ router.post('/carros', CarroController.create);
  // Rota para atualizar carro
 router.put('/carros/:id', CarroController.update);     
 
+
+ // Rota para deletar carro
+router.delete('/carros/:id', CarroController.delete);     
+
 module.exports = router;

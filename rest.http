@@ -61,11 +61,11 @@ POST http://localhost:3000/carros
 Content-Type: application/json
 
 {
-  "modelo": "Civic Type R",
+  "modelo": "Carro teste",
   "potencia": 320,
-  "ano_fabricacao": 2023,
-  "marca_id": "39cfb444-15b7-4420-8798-677541a07a1e",
-  "user_id": "453b28dd-abe9-4aaa-adbc-cfbbe786d6ac"
+  "ano_fabricacao": 2019,
+  "marca_id": "e1fd5906-53bc-451a-be39-5c546de87c74",
+  "user_id": "f83184ba-6e53-4aa5-9d05-491bb64188a6"
 }
 
 ### Atualizar carro
@@ -79,3 +79,9 @@ Content-Type: application/json
   "marca_id": "593877e1-507b-48d4-8c98-c5841ad831d7",
   "user_id": "86995fee-8799-4fe7-ae2e-475df12d0f72"
 }
+
+### Deletar carro
+DELETE http://localhost:3000/carros/f1f4d77d-5a86-47fa-874e-ef68eab81d05
+Content-Type: application/json
+
+###

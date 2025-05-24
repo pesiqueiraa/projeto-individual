@@ -120,6 +120,16 @@ class Carro {
             throw new Error('Erro ao atualizar carro: ' + error.message);
         }
     }
+
+        // Deletar carro
+    static async delete(id) {
+        try {
+            const result = await db.query('DELETE FROM carro WHERE id = $1 RETURNING *', [id]);
+            return result.rows.length > 0;
+        } catch (error) {
+            throw new Error('Erro ao deletar carro: ' + error.message);
+        }
+    }
 }
 
 module.exports = Carro;
