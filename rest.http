@@ -1,3 +1,4 @@
+# ========= GET =========
 # Listar users
 GET http://localhost:3000/users
 Content-Type: application/json
@@ -8,3 +9,15 @@ Content-Type: application/json
 
 GET http://localhost:3000/users/453b28dd-abe9-4aaa-adbc-cfbbe786d6ac
 
+###
+
+# ========= POST =========
+# Criar usuário 
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "nome": "Bruce Wayne",
+  "email": "bruce@email.com",
+  "senha": "123456"
+}

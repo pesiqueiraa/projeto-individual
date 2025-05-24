@@ -17,7 +17,7 @@ class UserController {
         }
     }
 
-        // GET /users/:id - Listar user específico
+    // GET /users/:id - Listar user específico
 
     static async show(req, res) {
         try {
@@ -33,6 +33,35 @@ class UserController {
                 message: "Usuario encontrado",
                 data: user
             })
+        } catch (error) {
+            res.status(500).json({
+                success: false,
+                message: 'Erro interno do servidor',
+                error: error.message
+            });
+        }
+    }
+
+    // POST /users - Criar novo usuário
+    static async create(req, res) {
+        try {
+            const { nome, email, senha } = req.body;
+
+            // Validação básica
+            if (!nome || !email || !senha) {
+                return res.status(400).json({
+                    success: false,
+                    message: 'Nome, email e senha são obrigatórios'
+                });
+            }
+
+            const newUser = await User.create({ nome, email, senha });
+
+            res.status(201).json({
+                success: true,
+                message: 'Usuário criado',
+                data: newUser
+            });
         } catch (error) {
             res.status(500).json({
                 success: false,
