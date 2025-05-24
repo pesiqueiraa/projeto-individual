@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 const UserController = require('../controllers/UserControllers.js')
+const CarroController = require('../controllers/CarroController.js')
 
+// ==== User ====
 // Rota para listar todos os usuários
 router.get('/users', UserController.index)
 
@@ -21,5 +23,11 @@ router.delete('/users/:id', UserController.delete);
 
 // Rota para login do user
 router.post('/users/login', UserController.login)
+
+// ==== Carro ====
+
+router.get('/carros', CarroController.index);  
+
+
 
 module.exports = router;

@@ -53,3 +53,9 @@ Content-Type: application/json
   "email": "admin@teste.com",
   "senha": "123456"
 }
+
+### ==== ROTAS DE CARROS ====
+
+### Listar todos os carros
+GET http://localhost:3000/carros
+Content-Type: application/json
