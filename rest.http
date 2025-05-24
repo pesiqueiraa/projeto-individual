@@ -59,3 +59,15 @@ Content-Type: application/json
 ### Listar todos os carros
 GET http://localhost:3000/carros
 Content-Type: application/json
+
+### Criar novo carro
+POST http://localhost:3000/carros
+Content-Type: application/json
+
+{
+  "modelo": "Civic Type R",
+  "potencia": 320,
+  "ano_fabricacao": 2023,
+  "marca_id": "39cfb444-15b7-4420-8798-677541a07a1e",
+  "user_id": "453b28dd-abe9-4aaa-adbc-cfbbe786d6ac"
+}

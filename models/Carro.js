@@ -35,6 +35,20 @@ class Carro {
             throw new Error('Erro ao buscar carros: ' + error.message);
         }
     }
+    // Criar novo carro
+    static async create(carroData) {
+        try {
+            const { modelo, potencia, ano_fabricacao, marca_id, user_id } = carroData;
+            const result = await db.query(
+                'INSERT INTO carro (modelo, potencia, ano_fabricacao, marca_id, user_id) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+                [modelo, potencia, ano_fabricacao, marca_id, user_id]
+            );
+            const row = result.rows[0];
+            return new Carro(row.id, row.modelo, row.potencia, row.ano_fabricacao, row.marca_id, row.user_id);
+        } catch (error) {
+            throw new Error('Erro ao criar carro: ' + error.message);
+        }
+    }
 }
 
 module.exports = Carro;

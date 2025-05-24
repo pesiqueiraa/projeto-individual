@@ -26,8 +26,10 @@ router.post('/users/login', UserController.login)
 
 // ==== Carro ====
 
+// Rota para listar todos os carros
 router.get('/carros', CarroController.index);  
 
-
+// Rota para criar carros
+router.post('/carros', CarroController.create);
 
 module.exports = router;
