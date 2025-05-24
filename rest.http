@@ -21,3 +21,17 @@ Content-Type: application/json
   "email": "bruce@email.com",
   "senha": "123456"
 }
+
+###
+
+# ========= PUT =========
+# Criar usuário 
+
+PUT http://localhost:3000/users/1c587cce-567e-4612-bbfe-d5ea0070e17a
+Content-Type: application/json
+
+{
+  "nome": "Pedro Siqueira",
+  "email": "pedrolindo@email.com",
+  "senha": "123456"
+}

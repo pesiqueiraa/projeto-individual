@@ -70,6 +70,45 @@ class UserController {
             });
         }
     }
+
+    // PUT /users/:id - Atualizar usuário
+    static async update(req, res) {
+        try {
+            const { id } = req.params;
+            const { nome, email, senha } = req.body;
+
+            // Validação básica
+            if (!nome || !email || !senha) {
+                return res.status(400).json({
+                    success: false,
+                    message: 'Nome, email e senha são obrigatórios'
+                });
+            }
+
+            // Verificar se usuário existe
+            const existingUser = await User.findById(id);
+            if (!existingUser) {
+                return res.status(404).json({
+                    success: false,
+                    message: 'Usuário não encontrado'
+                });
+            }
+
+            const updatedUser = await User.update(id, { nome, email, senha });
+            
+            res.status(200).json({
+                success: true,
+                message: 'Usuário atualizado com sucesso',
+                data: updatedUser
+            });
+        } catch (error) {
+            res.status(500).json({
+                success: false,
+                message: 'Erro interno do servidor',
+                error: error.message
+            });
+        }
+    }
 }
 
 module.exports = UserController;

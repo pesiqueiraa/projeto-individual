@@ -46,7 +46,24 @@ class User {
         }
 
     }
-    
+
+    // Atualizar usuário
+    static async update(id, userData) {
+        try {
+            const { nome, email, senha } = userData;
+            const result = await db.query(
+                'UPDATE users SET nome = $1, email = $2, senha = $3 WHERE id = $4 RETURNING *',
+                [nome, email, senha, id]
+            );
+            if (result.rows.length === 0) {
+                return null;
+            }
+            const row = result.rows[0];
+            return new User(row.id, row.nome, row.email, row.senha);
+        } catch (error) {
+            throw new Error('Erro ao atualizar usuário: ' + error.message);
+        }
+    }
 }
 
 module.exports = User;
