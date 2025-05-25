@@ -15,7 +15,7 @@
 <sup>Fonte: Material produzido pelos autores (2025)</sup>
 </div>
 
-O banco de dados é composto por três tabelas principais:
+&ensp;O banco de dados é composto por três tabelas principais:
 
 1. **User** - Armazena informações dos usuários cadastrados
    - UniqueID (PK): UUID - Identificador único do usuário
@@ -37,7 +37,7 @@ O banco de dados é composto por três tabelas principais:
    - user_id (FK): UUID - Referência ao ID do usuário que cadastrou o carro
 
 ### 2.2 Models 
-O sistema web implementa três models principais que representam as entidades do domínio e gerenciam a interação com o banco de dados PostgreSQL:
+&ensp;O sistema web implementa três models principais que representam as entidades do domínio e gerenciam a interação com o banco de dados PostgreSQL:
 #### Model User
 O model User representa os usuários do sistema e possui os seguintes atributos:
 
@@ -69,7 +69,7 @@ O model User representa os usuários do sistema e possui os seguintes atributos:
 `create(marcaData)`: Cadastra uma nova marca no sistema
 
 ### Model Carro
-O model Carro representa os veículos cadastrados pelos usuários e possui os seguintes atributos:
+&ensp;O model Carro representa os veículos cadastrados pelos usuários e possui os seguintes atributos:
 
 - **id:** Identificador único do carro
 - **modelo:** Modelo do veículo
@@ -92,14 +92,28 @@ O model Carro representa os veículos cadastrados pelos usuários e possui os se
 
 
 ### 2.3 Arquitetura
+&ensp;Este diagrama descreve a arquitetura de uma aplicação web para gerenciamento de usuários e carros, baseada no padrão MVC e utilizando React para o front-end, Node.js e Express para o back-end e PostgreSQL como banco de dados.
 
 
+<div align="center">
+<sub>Figura X - Arquitetura do projeto</sub>
+<img src="../assets/arquitetura.png" width="100%">
+<sup>Fonte: Material produzido pelos autores (2025)</sup>
+</div>
 
-Posicione aqui o diagrama de arquitetura da sua solução de aplicação web. Atualize sempre que necessário.
+#### View 
 
-Instruções para criação do diagrama de arquitetura
+&ensp;A camada de visualização utiliza React.js como tecnologia. Essa camada é responsável por renderizar a interface interativa, que permite a visualização e manipulação dos dados de usuários, carros e marcas. Além disso, o frontend realiza requisições HTTP para o backend e atualiza a interface de acordo com as respostas recebidas, proporcionando uma experiência dinâmica e responsiva para o usuário.
 
-Model: A camada que lida com a lógica de negócios e interage com o banco de dados.
-View: A camada responsável pela interface de usuário.
-Controller: A camada que recebe as requisições, processa as ações e atualiza o modelo e a visualização.
-Adicione as setas e explicações sobre como os dados fluem entre o Model, Controller e View.
+#### Controller
+
+&ensp; A camada de controle foi implementada com Express.js e atua como intermediária entre o frontend e a camada de modelo. Essa camada processa e valida os dados recebidos nas requisições, executa a lógica de negócio necessária e aciona os métodos dos modelos. As respostas são devolvidas no formato JSON, acompanhadas de códigos de status HTTP apropriados. 
+
+&ensp; Foram criados três controllers principais: o UserController, que gerencia o CRUD de usuários e autenticação, o CarroController, responsável por operações relacionadas a veículos, e o MarcaController, que administra as informações das marcas de carros.
+
+#### Model
+
+&ensp; A camada de modelo é o núcleo da lógica de negócio e da persistência de dados no sistema. Nela, são definidas as estruturas de dados e as regras de negócio. Os modelos implementados são o User Model, que gerencia dados de usuários e autenticação, o Carro Model, que lida com as informações dos veículos e seus relacionamentos com usuários e marcas, e o Marca Model, que armazena os dados das marcas. No banco de dados, os relacionamentos são bem definidos: cada carro pertence a uma marca e a um usuário, estabelecendo relações N:1 entre as tabelas.
+
+
+&ensp; **Legenda do Diagrama:** No diagrama de arquitetura, as setas não-pontilhadas representam o fluxo de requisições e as setas pontilhadas indicam o fluxo de respostas que retornam com os dados processados.
