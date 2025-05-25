@@ -6,14 +6,13 @@
 
 ---
 # Sobre o Projeto
-O sistema permite que usuários cadastrem informações sobre carros, incluindo:
+&ensp; O sistema permite que usuários cadastrem e gerenciem informações completas sobre carros, incluindo:
 
-- Foto do veículo
-- Modelo
-- Marca
-- Potência
+- **Gerenciamento de Usuários:** Cadastro, login e autenticação
+- **Cadastro de Carros:** Modelo, potência, ano de fabricação
+- **Gerenciamento de Marcas:** Cadastro de marcas com logos
 
-Estas informações são exibidas em formato de cards na interface do usuário, proporcionando uma visualização organizada e intuitiva dos veículos cadastrados.
+&ensp; As informações são armazenadas em banco PostgreSQL e exibidas através de uma interface React moderna, proporcionando uma experiência completa de gerenciamento de veículos.
 
 
 # Tecnologias Utilizadas
@@ -27,29 +26,35 @@ Estas informações são exibidas em formato de cards na interface do usuário, 
 ```
 projeto-individual/
 │
-├── config/                # Arquivos de configuração (ex: conexão com banco)
-│   └── database.js
+├── config/                # Arquivos de configuração
+│   └── database.js        # Configuração de conexão PostgreSQL
 ├── controllers/           # Lógica de controle das requisições
-│   └── HomeController.js
-├── models/                # Definição de modelos de dados (estrutura do banco)
-│   └── User.js
+│   ├── UserController.js  # Controle de usuários e autenticação
+│   ├── CarroController.js # Controle de veículos
+│   └── MarcaController.js # Controle de marcas
+├── models/                # Definição de modelos de dados
+│   ├── User.js           # Modelo de usuários
+│   ├── Carro.js          # Modelo de carros
+│   └── Marca.js          # Modelo de marcas
 ├── routes/                # Definição das rotas do sistema
-│   └── index.js
+│   └── index.js          # Rotas da API RESTful
 ├── services/              # Serviços auxiliares do sistema
-│   └── userService.js
-├── assets/                # Arquivos públicos como imagens e fontes
-├── scripts/               # Arquivos de JavaScript públicos
+│   └── userService.js    # Serviços de usuário
+├── scripts/               # Scripts de banco de dados
+│   ├── runSQLScripts.js  # Script para executar DDL
+│   └── sql/              # Arquivos SQL de criação
+├── assets/                # Arquivos públicos como imagens
 ├── styles/                # Arquivos CSS públicos
 ├── tests/                 # Arquivos de testes unitários
-│   └── example.test.js
+├── .env                   # Variáveis de ambiente (criar baseado no .env.example)
+├── .env.example           # Exemplo de configuração de ambiente
 ├── .gitignore             # Arquivo para ignorar arquivos no Git
-├── .env.example           # Arquivo de exemplo para variáveis de ambiente
-├── jest.config.js         # Arquivo de configuração do Jest
-├── package-lock.json      # Gerenciador de dependências do Node.js
-├── package.json           # Gerenciador de dependências do Node.js
-├── readme.md              # Documentação do projeto (Markdown)
-├── server.js              # Arquivo principal que inicializa o servidor
-└── rest.http              # Teste de endpoints (opcional)
+├── jest.config.js         # Configuração do Jest
+├── package-lock.json      # Lock de dependências do Node.js
+├── package.json           # Gerenciador de dependências
+├── readme.md              # Documentação do projeto
+├── server.js              # Arquivo principal do servidor
+└── rest.http              # Testes de endpoints da API
 
 ```
 
@@ -57,16 +62,59 @@ projeto-individual/
 
 ## Instalação
 
-1. Clone este repositório:
+**1. Clone este repositório:**
    ```bash
    git clone https://github.com/pesiqueiraa/projeto-individual.git
    cd seu-repositorio
-2. Instale as dependências:
+   ```
+
+**2. Instale as dependências:**
 
    ```bash
    npm install
-3. Inicie o servidor:
+   ```
+
+**3. Configure as Variáveis de Ambiente:**
+&ensp;Crie um arquivo .env para armazenar as variáveis de conexão com o banco de dados:
+
+   ```bash
+   DB_HOST=localhost
+   DB_PORT=5432
+   DB_USER=seu_usuario
+   DB_PASSWORD=sua_senha
+   DB_NAME=nome_do_banco
+   ```
+**4. Execute os scripts de criação das tabelas:**
+
+   ```bash
+   node scripts/runSQLScripts.js
+   ```
+**5. Inicie o Servidor:**
 
    ```bash
    npm start
-4. Acesse no navegador: [http://localhost:3000](http://localhost:3000)
+   ```
+**6. Acesse no navegador:** [http://localhost:3000](http://localhost:3000)
+
+## Endpoints
+#### Usuários
+
+- `POST /users` - Criar usuário
+- `GET /users` - Listar usuários
+- `GET /users/:id` - Buscar usuário específico
+- `PUT /users/:id` - Atualizar usuário
+- `DELETE /users/:id` - Deletar usuário
+- `POST /users/login` - Login de usuário
+
+#### Carros
+
+- `GET /carros` - Listar carros
+- `POST /carros` - Criar carro
+- `PUT /carros/:id` - Atualizar carro
+- `DELETE /carros/:id` - Deletar carro
+
+#### Marcas
+
+- `GET /marcas` - Listar marcas
+- `GET /marcas/:id` - Buscar marca específica
+- `POST/marcas` - Criar marca
