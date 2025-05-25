@@ -115,5 +115,8 @@ O model User representa os usuários do sistema e possui os seguintes atributos:
 
 &ensp; A camada de modelo é o núcleo da lógica de negócio e da persistência de dados no sistema. Nela, são definidas as estruturas de dados e as regras de negócio. Os modelos implementados são o User Model, que gerencia dados de usuários e autenticação, o Carro Model, que lida com as informações dos veículos e seus relacionamentos com usuários e marcas, e o Marca Model, que armazena os dados das marcas. No banco de dados, os relacionamentos são bem definidos: cada carro pertence a uma marca e a um usuário, estabelecendo relações N:1 entre as tabelas.
 
+#### API
+
+A aplicação implementa endpoints que permitem o gerenciamento de usuários (incluindo autenticação via login), carros e marcas. As validações são realizadas nos Controllers, garantindo a integridade dos dados antes de qualquer operação no banco de dados. As respostas seguem os padrões HTTP, com códigos como 200 (sucesso), 201 (recurso criado), 400 (dados inválidos), 404 (recurso não encontrado) e 500 (erro interno do servidor).
 
 &ensp; **Legenda do Diagrama:** No diagrama de arquitetura, as setas não-pontilhadas representam o fluxo de requisições e as setas pontilhadas indicam o fluxo de respostas que retornam com os dados processados.
