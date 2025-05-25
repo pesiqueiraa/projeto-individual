@@ -44,4 +44,7 @@ router.delete('/carros/:id', CarroController.delete);
 
 // Rota para listar todas as marcas de carro
 router.get('/marcas', MarcaController.index)
+
+// Rota para mostrar uma marca especifica
+router.get('/marcas/:id', MarcaController.show)
 module.exports = router;

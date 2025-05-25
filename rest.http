@@ -89,3 +89,8 @@ Content-Type: application/json
 ### Listar todas as marcas
 GET http://localhost:3000/marcas
 Content-Type: application/json
+
+
+### Listar uma marca especifica
+GET http://localhost:3000/marcas/e1fd5906-53bc-451a-be39-5c546de87c74
+Content-Type: application/json
