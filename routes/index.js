@@ -3,6 +3,7 @@ const router = express.Router();
 
 const UserController = require('../controllers/UserControllers.js')
 const CarroController = require('../controllers/CarroController.js')
+const MarcaController = require('../controllers/MarcaController.js')
 
 // ==== User ====
 // Rota para listar todos os usuários
@@ -32,11 +33,15 @@ router.get('/carros', CarroController.index);
 // Rota para criar carros
 router.post('/carros', CarroController.create);
 
- // Rota para atualizar carro
+// Rota para atualizar carro
 router.put('/carros/:id', CarroController.update);     
 
 
- // Rota para deletar carro
+// Rota para deletar carro
 router.delete('/carros/:id', CarroController.delete);     
 
+// ==== Marca ====
+
+// Rota para listar todas as marcas de carro
+router.get('/marcas', MarcaController.index)
 module.exports = router;
