@@ -47,4 +47,7 @@ router.get('/marcas', MarcaController.index)
 
 // Rota para mostrar uma marca especifica
 router.get('/marcas/:id', MarcaController.show)
+
+// Rota para criar marca
+router.post('/marcas', MarcaController.create);    
 module.exports = router;

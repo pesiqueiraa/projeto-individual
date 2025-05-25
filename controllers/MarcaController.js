@@ -45,5 +45,26 @@ class MarcaController {
             });
         }
     }
+
+        // POST /marcas - Criar nova marca
+    static async create(req, res) {
+        try {
+            const { nome, logo_url } = req.body;
+
+            const newMarca = await Marca.create({ nome, logo_url });
+            
+            res.status(201).json({
+                success: true,
+                message: 'Marca criada com sucesso',
+                data: newMarca
+            });
+        } catch (error) {
+            res.status(500).json({
+                success: false,
+                message: 'Erro interno do servidor',
+                error: error.message
+            });
+        }
+    }
 }
 module.exports = MarcaController;

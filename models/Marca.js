@@ -31,6 +31,20 @@ class Marca {
             throw new Error('Erro ao buscar marca: ' + error.message);
         }
     }
+        // Criar nova marca
+    static async create(marcaData) {
+        try {
+            const { id, nome, logo_url } = marcaData;
+            const result = await db.query(
+                'INSERT INTO marca (nome, logo_url) VALUES ($1, $2) RETURNING *',
+                [nome, logo_url]
+            );
+            const row = result.rows[0];
+            return new Marca(row.id, row.nome, row.logo_url);
+        } catch (error) {
+            throw new Error('Erro ao criar marca: ' + error.message);
+        }
+    }
 }
 
 module.exports = Marca;
