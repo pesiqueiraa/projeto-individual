@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const PORT = 3000;
 
 // Middleware para processar JSON
+app.use(cors());
 app.use(express.json());
 
 // Rotas

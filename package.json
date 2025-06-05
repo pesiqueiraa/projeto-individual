@@ -9,7 +9,8 @@
   "scripts": {
     "init-db": "node scripts/runSQLScripts.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "concurrently \"npm start\" \"npm run dev --prefix views/frontend\""
   },
   "repository": {
     "type": "git",
@@ -23,8 +24,12 @@
   },
   "homepage": "https://github.com/pesiqueiraa/projeto-individual#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "pg": "^8.15.6"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
