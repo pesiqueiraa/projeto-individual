@@ -65,7 +65,7 @@ projeto-individual/
 **1. Clone este repositório:**
    ```bash
    git clone https://github.com/pesiqueiraa/projeto-individual.git
-   cd seu-repositorio
+   cd projeto-individual
    ```
 
 **2. Instale as dependências:**
@@ -92,9 +92,9 @@ projeto-individual/
 **5. Inicie o Servidor:**
 
    ```bash
-   npm start
+   npm run dev
    ```
-**6. Acesse no navegador:** [http://localhost:3000](http://localhost:3000)
+**6. Acesse no navegador:** [http://localhost:5173](http://localhost:5173/)
 
 ## Endpoints
 #### Usuários
