@@ -37,7 +37,7 @@ const LoginPage = ({ onLogin }) => {
 
             const userData = {
                 id: response.data.data.id,
-                nome: response.data.user?.nome || 'Usuário',
+                nome: response.data.data.nome,
                 email: formData.email
             };
 
