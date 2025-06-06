@@ -21,6 +21,7 @@ const ProfilePage = ({ user, onLogout }) => {
     console.log('Usuário logado:', user);
     React.useEffect(() => {
         loadInitialData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []); 
 
     const loadInitialData = async () => {
