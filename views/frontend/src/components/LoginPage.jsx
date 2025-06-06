@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Car, Mail, Lock, Gauge, Zap, Settings, Users, BarChart3 } from 'lucide-react';
 
-const BASE_URL = 'http://localhost:3000'; // ou a URL do seu servidor
+const BASE_URL = 'http://localhost:3000'; 
 
-const LoginPage = () => {
+const LoginPage = ({ onLogin }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [showError, setShowError] = useState(false);
     const [formData, setFormData] = useState({
@@ -35,18 +35,21 @@ const LoginPage = () => {
                 }
             );
 
-            // Se chegar aqui, status 200 e response.data.success === true
-            alert(response.data.message || 'Login realizado com sucesso!');
+            const userData = {
+                id: response.data.data.id,
+                nome: response.data.user?.nome || 'Usuário',
+                email: formData.email
+            };
+
+            onLogin(userData);
             setIsLoading(false);
         } catch (err) {
             setIsLoading(false);
 
             if (err.response) {
-                // Erro retornado pelo backend (401, 400, etc)
-                alert(err.response.data.message || 'Erro ao fazer login.');
+                console.error('Erro de login:', err.response.data.message);
             } else {
-                // Erro de rede ou inesperado
-                alert('Erro de conexão. Tente novamente mais tarde.');
+                console.error('Erro de conexão');
             }
             setShowError(true);
         }
@@ -54,9 +57,7 @@ const LoginPage = () => {
 
     return (
         <div className="h-screen w-screen flex overflow-hidden" style={{ backgroundColor: '#0F172A' }}>
-            {/* Left Side - Branding and Features */}
             <div className="flex-1 flex flex-col justify-center items-center p-8 relative overflow-hidden">
-                {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-5">
                     <div className="absolute top-20 left-20">
                         <Car className="h-32 w-32 text-white transform rotate-12" />
@@ -64,18 +65,14 @@ const LoginPage = () => {
                     <div className="absolute bottom-32 right-20">
                         <Settings className="h-24 w-24 text-white transform -rotate-12" />
                     </div>
-                    <div className="absolute top-1/2 left-1/3">
-                        <Gauge className="h-28 w-28 text-white transform rotate-45" />
-                    </div>
+
                 </div>
 
                 <div className="relative z-10 max-w-sm text-center">
-                    {/* Logo */}
                     <div className="inline-block p-4 rounded-full mb-6" style={{ backgroundColor: '#1E293B' }}>
                         <Zap className="h-16 w-16" style={{ color: '#E63946' }} />
                     </div>
 
-                    {/* Main Heading */}
                     <h1 className="text-4xl font-bold mb-3" style={{ color: '#E63946' }}>
                         Garagem AutoCars
                     </h1>
@@ -83,34 +80,12 @@ const LoginPage = () => {
                         Sistema de Gestão Automotiva Completo
                     </p>
 
-                    {/* Features */}
-                    <div className="space-y-3 text-left">
-                        <div className="flex items-center space-x-3">
-                            <div className="p-2 rounded-lg" style={{ backgroundColor: '#1E293B' }}>
-                                <Car className="h-4 w-4" style={{ color: '#E63946' }} />
-                            </div>
-                            <span className="text-sm text-gray-300">Gestão completa de veículos</span>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                            <div className="p-2 rounded-lg" style={{ backgroundColor: '#1E293B' }}>
-                                <Users className="h-4 w-4" style={{ color: '#E63946' }} />
-                            </div>
-                            <span className="text-sm text-gray-300">Controle de clientes e funcionários</span>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                            <div className="p-2 rounded-lg" style={{ backgroundColor: '#1E293B' }}>
-                                <BarChart3 className="h-4 w-4" style={{ color: '#E63946' }} />
-                            </div>
-                            <span className="text-sm text-gray-300">Relatórios e análises detalhadas</span>
-                        </div>
-                    </div>
+
                 </div>
             </div>
 
-            {/* Right Side - Login Form */}
             <div className="flex-1 flex items-center justify-center p-8 overflow-hidden" style={{ backgroundColor: '#1E293B' }}>
                 <div className="w-full max-w-sm">
-                    {/* Login Card */}
                     <div
                         className="rounded-2xl shadow-2xl border p-6"
                         style={{
@@ -189,8 +164,6 @@ const LoginPage = () => {
                                 )}
                             </button>
                         </div>
-
-                        {/* Error Message */}
                         {showError && (
                             <div
                                 className="mt-6 p-4 rounded-xl text-white text-center text-sm border-l-4"
@@ -203,11 +176,8 @@ const LoginPage = () => {
                             </div>
                         )} 
                     </div>
-
-                    {/* Footer */}
                     <div className="text-center mt-4">
                         <p className="text-xs text-gray-400">
-                            © 2025 Garagem AutoCars. Todos os direitos reservados.
                         </p>
                     </div>
                 </div>
