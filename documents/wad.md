@@ -120,3 +120,63 @@ O model User representa os usuários do sistema e possui os seguintes atributos:
 A aplicação implementa endpoints que permitem o gerenciamento de usuários (incluindo autenticação via login), carros e marcas. As validações são realizadas nos Controllers, garantindo a integridade dos dados antes de qualquer operação no banco de dados. As respostas seguem os padrões HTTP, com códigos como 200 (sucesso), 201 (recurso criado), 400 (dados inválidos), 404 (recurso não encontrado) e 500 (erro interno do servidor).
 
 &ensp; **Legenda do Diagrama:** No diagrama de arquitetura, as setas não-pontilhadas representam o fluxo de requisições e as setas pontilhadas indicam o fluxo de respostas que retornam com os dados processados.
+
+### 2.4 Interface e Navegação
+
+[Descreva e ilustre aqui o desenvolvimento do frontend do sistema web, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.]### 2.4 Interface e Navegação
+
+&ensp; O frontend do sistema foi desenvolvido utilizando React.js, proporcionando uma experiência de usuário moderna, responsiva e intuitiva. A interface foi estruturada em componentes reutilizáveis, facilitando a manutenção e a escalabilidade do projeto.
+
+#### Arquitetura Frontend
+
+&ensp; A aplicação utiliza um conjunto robusto de tecnologias e bibliotecas modernas. O React Router DOM é responsável pela navegação entre páginas sem recarregamento, proporcionando uma experiência fluida ao usuário. Para a comunicação HTTP com a API REST, utilizamos o Axios, que oferece uma interface simples e confiável para requisições. A biblioteca Lucide React fornece ícones modernos e consistentes em toda a aplicação, enquanto o Tailwind CSS atua como framework CSS utilitário para estilização.
+
+#### Estrutura de Navegação
+
+&ensp; A navegação principal é realizada por meio de um sistema de rotas protegidas, garantindo que apenas usuários autenticados tenham acesso às funcionalidades principais. 
+
+#####  Página de Login
+&ensp; A interface de autenticação apresenta campos para email e senha com validação de formulário em tempo real. O sistema fornece feedback visual específico para erros de login, facilitando a identificação de problemas pelo usuário. Adicionalmente, existe um link direto para a página de cadastro, permitindo que novos usuários se registrem facilmente na plataforma.
+
+<div align="center">
+<sub>Figura X - Tela de Login</sub>
+<img src="../assets/tela-login.png" width="100%">
+<sup>Fonte: Material produzido pelos autores (2025)</sup>
+</div>
+
+##### Página de Cadastro
+
+&ensp; O formulário de cadastro é completo e intuitivo, contendo os campos essenciais: Nome, Email, Senha e Confirmação de Senha. As validações são realizadas do lado cliente, verificando aspectos como comprimento mínimo da senha e confirmação correta. Após um cadastro bem-sucedido, o sistema realiza redirecionamento automático para a área logada.
+
+<div align="center">
+<sub>Figura X - Página de Cadastro</sub>
+<img src="../assets/tela-cadastro.png" width="100%">
+<sup>Fonte: Material produzido pelos autores (2025)</sup>
+</div>
+
+##### Home Page
+&ensp; O dashboard personalizado exibe informações detalhadas do usuário logado, incluindo uma listagem dos carros cadastrados em formato de cards. Os usuários têm acesso a botões de ação para adicionar, ou remover carros.
+
+<div align="center">
+<sub>Figura X - HomePage</sub>
+<img src="../assets/homepage.png" width="100%">
+<sup>Fonte: Material produzido pelos autores (2025)</sup>
+</div>
+
+##### Cadastro de Carro
+
+&ensp; Ao clicar no botão de adicionar carro na homepage, abre-se um modal contendo um formulário para o preenchimento das informações. O formulário permite a inclusão de veículos na plataforma. Os campos obrigatórios incluem Modelo, Marca, Ano e Potência, todos com validação de dados antes do envio. A seleção de marca é realizada através de um dropdown conectado diretamente à API, garantindo dados atualizados e consistentes.
+
+<div align="center">
+<sub>Figura X - Formulário</sub>
+<img src="../assets/modal.png" width="100%">
+<sup>Fonte: Material produzido pelos autores (2025)</sup>
+</div>
+
+<div align="center">
+<sub>Figura X - Formulário exemplo</sub>
+<img src="../assets/exemplo.png" width="100%">
+<sup>Fonte: Material produzido pelos autores (2025)</sup>
+</div>
+
+&ensp; A interface proporciona uma experiência fluida e intuitiva, com navegação clara e feedback constante ao usuário, garantindo alta usabilidade e satisfação na utilização do sistema de gestão automotiva.
