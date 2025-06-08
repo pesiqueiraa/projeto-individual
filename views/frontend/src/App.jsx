@@ -1,4 +1,5 @@
 import LoginPage from "./components/LoginPage"
+import RegisterPage from "./components/RegisterPage"
 import ProfilePage from "./components/ProfilePage"
 import { useState } from "react"
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
@@ -27,6 +28,14 @@ function App() {
                         isAuthenticated ? 
                         <Navigate to="/profile" replace /> : 
                         <LoginPage onLogin={handleLogin} />
+                    } 
+                />
+                <Route 
+                    path="/register" 
+                    element={
+                        isAuthenticated ? 
+                        <Navigate to="/profile" replace /> : 
+                        <RegisterPage />
                     } 
                 />
                 <Route 
