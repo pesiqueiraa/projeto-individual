@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Car, Mail, Lock, Gauge, Zap, Settings, Users, BarChart3 } from 'lucide-react';
 
@@ -65,7 +66,6 @@ const LoginPage = ({ onLogin }) => {
                     <div className="absolute bottom-32 right-20">
                         <Settings className="h-24 w-24 text-white transform -rotate-12" />
                     </div>
-
                 </div>
 
                 <div className="relative z-10 max-w-sm text-center">
@@ -79,8 +79,6 @@ const LoginPage = ({ onLogin }) => {
                     <p className="text-lg text-gray-300 mb-6">
                         Sistema de Gestão Automotiva Completo
                     </p>
-
-
                 </div>
             </div>
 
@@ -176,8 +174,17 @@ const LoginPage = ({ onLogin }) => {
                             </div>
                         )} 
                     </div>
-                    <div className="text-center mt-4">
-                        <p className="text-xs text-gray-400">
+                    
+                    <div className="text-center mt-6">
+                        <p className="text-gray-400 text-sm">
+                            Não tem uma conta?{' '}
+                            <Link 
+                                to="/register" 
+                                className="font-medium hover:underline transition-colors duration-200"
+                                style={{ color: '#E63946' }}
+                            >
+                                Cadastre-se aqui
+                            </Link>
                         </p>
                     </div>
                 </div>
