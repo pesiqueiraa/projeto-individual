@@ -89,12 +89,30 @@ projeto-individual/
    ```bash
    node scripts/runSQLScripts.js
    ```
-**5. Inicie o Servidor:**
+
+**5. Digite:**
+
+   ```bash
+cd .\views\frontend\
+   ```
+
+**6. Após entrar na pasta frontend, digite:**
+
+   ```bash
+npm install
+   ```
+**7. Agora volte para a raiz do projeto com:**
+
+   ```bash
+cd ../..
+   ```
+
+**8. Inicie o projeto:**
 
    ```bash
    npm run dev
    ```
-**6. Acesse no navegador:** [http://localhost:5173](http://localhost:5173/)
+**9. Acesse no navegador:** [http://localhost:5173](http://localhost:5173/)
 
 ## Endpoints
 #### Usuários
