@@ -136,3 +136,8 @@ cd ../..
 - `GET /marcas` - Listar marcas
 - `GET /marcas/:id` - Buscar marca específica
 - `POST/marcas` - Criar marca
+- 
+
+## Demonstração
+
+&ensp; Veja este vídeo para ver o funcionamento da plataforma e especificações técnicas <a href="https://youtu.be/Fu4zhPPh2Hs?si=QGRt_PNlcIJvppUT">Link</a>.
